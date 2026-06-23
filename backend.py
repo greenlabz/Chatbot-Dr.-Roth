@@ -34,6 +34,10 @@ app.add_middleware(
 
 SYSTEM_PROMPT = "Du bist ein hochprofessioneller und freundlicher KI-Assistent."
 
+@app.get("/")
+async def root():
+    return {"message": "Chatbot Backend is alive!"}
+
 @app.post("/chat")
 async def chat(request: Request):
     data = await request.json()
